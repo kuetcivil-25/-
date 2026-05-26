@@ -266,12 +266,16 @@
   }
 
   function fixDriveUrl(url) {
-    if (url && url.includes('drive.google.com')) {
-      const matches = url.match(/\/d\/([^/]+)/);
-      if (matches && matches[1]) return `https://drive.google.com/file/d/${matches[1]}/preview`;
+  if (url && url.includes('drive.google.com')) {
+    // লিংকের ভেতর থেকে ফাইল আইডি (File ID) বের করার সবচেয়ে শক্তিশালী নিয়ম
+    const matches = url.match(/(?:\/d\/|id=)([^/?&]+)/);
+    if (matches && matches[1]) {
+      // preview লিংক গুগলের iframe ব্লকিংকে শতভাগ বাইপাস করে
+      return `https://drive.google.com/file/d/${matches[1]}/preview`;
     }
-    return url || '#';
   }
+  return url || '#';
+}
 
   async function loadData() {
     showSkeletons();
