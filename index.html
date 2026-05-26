@@ -9,14 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* Deep Void Theme (Dark Mode Base) */
     --bg-void: #030712; 
     --bg-deep: #0b0f17; 
     --bg-surface: #111827;
     --bg-card: #1f2937;
     --border: rgba(197, 160, 89, 0.12);
     --border-hover: rgba(197, 160, 89, 0.35);
-    --gold: #c5a059; /* Muted Sophisticated Gold */
+    --gold: #c5a059; 
     --gold-muted: #8a6f3e;
     --gold-glow: rgba(197, 160, 89, 0.04);
     --blueprint-line: rgba(255, 255, 255, 0.015);
@@ -27,7 +26,6 @@
   }
 
   .light {
-    /* Clean Industrial Light Mode */
     --bg-void: #f9fafb;
     --bg-deep: #f3f4f6;
     --bg-surface: #e5e7eb;
@@ -54,7 +52,6 @@
     transition: background 0.3s, color 0.3s;
   }
 
-  /* Blueprint Grid Layout */
   .blueprint-bg {
     position: fixed; inset: 0; z-index: 0; pointer-events: none;
     background-image:
@@ -64,8 +61,7 @@
   }
   .blueprint-bg::after {
     content: ''; position: absolute; inset: 0;
-    background: var(--shadow-overlay),
-                radial-gradient(circle at 80% 80%, rgba(0,0,0,0.4) 0%, transparent 100%);
+    background: var(--shadow-overlay), radial-gradient(circle at 80% 80%, rgba(0,0,0,0.4) 0%, transparent 100%);
   }
 
   header {
@@ -73,9 +69,7 @@
     background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border);
     transition: background 0.3s;
   }
-  .light header {
-    background: rgba(249, 250, 251, 0.85);
-  }
+  .light header { background: rgba(249, 250, 251, 0.85); }
 
   .header-inner {
     max-width: 1280px; margin: 0 auto; padding: 0 24px;
@@ -97,20 +91,17 @@
   .page-hero h1 span { color: var(--gold); }
   .page-hero p { margin-top: 10px; color: var(--text-secondary); font-size: 13px; font-family: 'JetBrains Mono', monospace; letter-spacing: 1px; }
 
-  /* Counter Cards */
   .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 40px 0; }
   .stat-card { background: var(--bg-deep); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; position: relative; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
   .stat-card .label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-family: 'JetBrains Mono', monospace; margin-bottom: 4px; }
   .stat-card .value { font-family: 'Rajdhani', sans-serif; font-size: 32px; font-weight: 700; color: var(--gold); }
 
-  /* Navigation Tabs */
   .tab-bar { display: flex; gap: 8px; margin-bottom: 28px; border-bottom: 1px solid var(--border); }
   .tab-btn { font-size: 15px; font-weight: 500; padding: 12px 24px; border: none; background: none; color: var(--text-muted); cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; display: flex; align-items: center; gap: 8px; }
   .tab-btn:hover { color: var(--text-secondary); }
   .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); font-weight: 600; }
   .tab-count { font-family: 'JetBrains Mono', monospace; font-size: 11px; background: var(--gold-glow); color: var(--gold); border: 1px solid var(--border); padding: 1px 6px; border-radius: 6px; }
 
-  /* Inputs and Buttons */
   .search-input { width: 100%; background: var(--bg-deep); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px 12px 42px; color: var(--text-primary); font-size: 14px; outline: none; transition: all 0.2s; }
   .search-input:focus { border-color: var(--gold); box-shadow: 0 0 12px rgba(197, 160, 89, 0.1); }
   
@@ -119,29 +110,25 @@
 
   .content-list { display: flex; flex-direction: column; gap: 14px; }
   .content-card { background: var(--bg-deep); border: 1px solid var(--border); border-left: 4px solid var(--gold); border-radius: 12px; padding: 24px; display: flex; justify-content: space-between; align-items: center; transition: all 0.2s; box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
-  .content-card:hover { border-color: var(--border-hover); border-left-color: var(--gold); transform: translateX(2px); }
-  
+  .content-card:hover { border-color: var(--border-hover); transform: translateX(2px); }
   .content-card-title { font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
   .card-meta-row { display: flex; gap: 16px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-muted); margin-top: 8px; }
 
-  /* Profile Layout */
   .profile-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
   .profile-card { background: var(--bg-deep); border: 1px solid var(--border); border-radius: 14px; padding: 28px 20px; text-align: center; transition: all 0.25s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
   .profile-card:hover { border-color: var(--border-hover); transform: translateY(-4px); }
   .avatar { width: 72px; height: 72px; border-radius: 50%; background: var(--bg-surface); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-family: 'Rajdhani', sans-serif; font-size: 24px; font-weight: 700; color: var(--gold); }
 
-  .badge { display: inline-flex; align-items: center; gap: 6px; font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 6px; border: 1px solid var(--border); background: var(--gold-glow); color: var(--gold); text-decoration: none; transition: all 0.2s; cursor: pointer; }
+  .badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 6px; border: 1px solid var(--border); background: var(--gold-glow); color: var(--gold); text-decoration: none; transition: all 0.2s; cursor: pointer; }
   .badge:hover { background: var(--gold); color: var(--bg-void); border-color: var(--gold); }
 
-  /* Modals */
   .modal-overlay { position: fixed; inset: 0; z-index: 1000; background: rgba(3, 7, 18, 0.5); backdrop-filter: blur(12px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.25s; }
   .modal-overlay.open { opacity: 1; pointer-events: all; }
   .modal { background: var(--bg-deep); border: 1px solid var(--border); border-radius: 16px; width: 100%; max-width: 540px; padding: 28px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
   
   .form-group { margin-bottom: 18px; }
-  .form-label { display: block; font-size: 11px; color: var(--text-muted); text-transform: uppercase; font-family: 'JetBrains Mono', monospace; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .form-label { display: block; font-size: 11px; color: var(--text-muted); text-transform: uppercase; font-family: 'JetBrains Mono', monospace; margin-bottom: 6px; }
   .form-input, .form-textarea { width: 100%; background: var(--bg-surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px; color: var(--text-primary); font-size: 14px; outline: none; }
-  .form-input:focus, .form-textarea:focus { border-color: var(--gold); }
 
   .skeleton { background: linear-gradient(90deg, var(--bg-deep) 25%, var(--bg-surface) 50%, var(--bg-deep) 75%); background-size: 200% 100%; animation: loadingShimmer 1.6s infinite; border-radius: 12px; }
   @keyframes loadingShimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
@@ -163,13 +150,13 @@
       </div>
     </div>
     <div class="flex items-center gap-4">
-      <button class="mode-toggle" onclick="toggleMode()" aria-label="Toggle Interface Mode">
+      <button class="mode-toggle" onclick="toggleMode()">
         <svg id="modeIcon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path d="M20.35 12.01A8 8 0 1111.99 4.02a1.5 1.5 0 001.32.72.5.5 0 00.51-.51.5.5 0 00-.09-.3A8.04 8.04 0 0120.35 12.01z"></path>
         </svg>
       </button>
-      <div style="font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--gold); border:1px solid var(--border); padding:6px 12px; border-radius:6px; display:flex; align-items:center; gap:8px;">
-        <span style="width:6px; height:6px; background:var(--gold); border-radius:50%"></span> CORE ENGINE LIVE
+      <div style="font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--gold); border:1px solid var(--border); padding:6px 12px; border-radius:6px;">
+        ● DATABASE PIPELINE READY
       </div>
     </div>
   </div>
@@ -178,7 +165,7 @@
 <main class="main-wrap">
   <div class="page-hero">
     <h1>Engineers' <span>Deck</span></h1>
-    <p>// Department of Civil Engineering • Khulna University of Engineering & Technology</p>
+    <p>// Department of Civil Engineering • KUET</p>
   </div>
 
   <div class="stats-row">
@@ -195,8 +182,7 @@
 
   <div class="flex gap-4 mb-8 items-center flex-wrap">
     <div class="relative flex-1 min-w-[260px]">
-      <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-4 h-4 fill-none stroke-currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input class="search-input" id="search-input" type="text" placeholder="Search notices, resources or members..." oninput="handleSearch(this.value)">
+      <input class="search-input" id="search-input" type="text" placeholder="Search data matrix..." oninput="handleSearch(this.value)">
     </div>
     <button class="add-btn" onclick="openFormModal()">+ Add New Entry</button>
   </div>
@@ -210,9 +196,9 @@
 
 <div id="docViewerModal" class="hidden">
   <div style="position:relative; width:100%; max-width:960px; height:85vh; background:var(--bg-deep); border:1px solid var(--border); border-radius:14px; display:flex; flex-direction:column; overflow:hidden;">
-    <div style="padding:16px; background:var(--bg-void); display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border)">
-      <h4 id="modalTitle" style="font-family:'Rajdhani', sans-serif; color:var(--gold); font-weight:600;">Document System Frame</h4>
-      <button onclick="closeDocViewer()" style="background:none; border:none; color:#ef4444; cursor:pointer; font-weight:bold; margin-left:auto;">✕ Close Preview</button>
+    <div style="padding:16px; background:var(--bg-void); display:flex; justify-content:space-between; border-bottom:1px solid var(--border)">
+      <h4 id="modalTitle" style="color:var(--gold); font-weight:600;">Document Viewer</h4>
+      <button onclick="closeDocViewer()" style="color:#ef4444; font-weight:bold;">✕ Close</button>
     </div>
     <iframe id="docFrame" src="" style="width:100%; flex:1; background:white; border:none;"></iframe>
   </div>
@@ -222,22 +208,22 @@
 
 <div class="modal-overlay" id="form-modal">
   <div class="modal">
-    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); padding-bottom:14px; margin-bottom:24px;">
-      <h3 id="modal-title-text" style="font-family:'Rajdhani', sans-serif; color:var(--gold); font-size:18px; font-weight:700;">Form Loading...</h3>
-      <button onclick="closeFormModal()" style="background:none; border:none; color:#ef4444; cursor:pointer; font-size:18px;">✕</button>
+    <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border); padding-bottom:14px; margin-bottom:24px;">
+      <h3 id="modal-title-text" style="color:var(--gold); font-weight:700;">Form</h3>
+      <button onclick="closeFormModal()" style="color:#ef4444;">✕</button>
     </div>
     <form id="submissionForm" method="POST" target="hidden_iframe">
       <div id="dynamic-form-fields"></div>
       <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:28px;">
-        <button id="modal-cancel-btn" type="button" onclick="closeFormModal()" style="background:none; border:1px solid var(--border); border-radius:8px; padding:10px 20px; color:var(--text-secondary); font-size:14px;">Cancel</button>
-        <button id="modal-submit-btn" type="submit" onclick="submitted=true" style="background:var(--gold); color:var(--bg-void); font-weight:600; border-radius:8px; padding:10px 24px; font-size:14px;">Submit</button>
+        <button type="button" onclick="closeFormModal()" style="border:1px solid var(--border); padding:10px 20px; color:var(--text-secondary);">Cancel</button>
+        <button id="modal-submit-btn" type="submit" onclick="submitted=true" style="background:var(--gold); color:var(--bg-void); font-weight:600; padding:10px 24px; border-radius:8px;">Submit</button>
       </div>
     </form>
   </div>
 </div>
 
 <script>
-  // Global Application State Matrix
+  // তোমার সর্বশেষ ১০,০০০% সাকসেসফুল লিঙ্কটি এখানে পারফেক্টলি সেট করে দেওয়া হলো
   const CONFIG = {
     GAS_URL: 'https://script.google.com/macros/s/AKfycbxioe2s17uBb7CCQahlgUJgBshI5Otao-1E_4zPaft1u9zl_l-P4H5cMHqdt2ocumBd/exec'
   };
@@ -251,36 +237,34 @@
 
   function toggleMode() {
     const html = document.documentElement;
-    const icon = document.getElementById('modeIcon');
-    
     if (html.classList.contains('light')) {
-      html.classList.remove('light');
-      html.classList.add('dark');
-      icon.innerHTML = '<path d="M20.35 12.01A8 8 0 1111.99 4.02a1.5 1.5 0 001.32.72.5.5 0 00.51-.51.5.5 0 00-.09-.3A8.04 8.04 0 0120.35 12.01z"></path>';
+      html.classList.remove('light'); html.classList.add('dark');
     } else {
-      html.classList.remove('dark');
-      html.classList.add('light');
-      icon.innerHTML = '<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>';
+      html.classList.remove('dark'); html.classList.add('light');
     }
   }
 
   function fixDriveUrl(url) {
     if (url && url.includes('drive.google.com')) {
       const matches = url.match(/\/d\/([^/]+)/);
-      if (matches && matches[1]) {
-        return `https://drive.google.com/file/d/${matches[1]}/preview`;
-      }
+      if (matches && matches[1]) return `https://drive.google.com/file/d/${matches[1]}/preview`;
     }
     return url || '#';
   }
 
+  // নিরাপদ এবং অপ্টিমাইজড গুগল ফেচ রিকোয়েস্ট মেকানিজম
   async function loadData() {
     showSkeletons();
     try {
-      const response = await fetch(`${CONFIG.GAS_URL}?t=${new Date().getTime()}`);
+      const response = await fetch(`${CONFIG.GAS_URL}?t=${new Date().getTime()}`, {
+        method: 'GET',
+        mode: 'cors',
+        redirect: 'follow'
+      });
       const result = await response.json();
-      if(result.data) {
+      if(result.status === "success" && result.data) {
         serverData = result.data;
+        console.log("Database Connection Established & Streamed!", serverData);
       }
     } catch (err) {
       console.error("Execution halt during fetch stream ingestion.", err);
@@ -289,26 +273,37 @@
   }
 
   function showSkeletons() {
-    const skeletonBlock = `<div class="skeleton w-full" style="height:115px;"></div><div class="skeleton w-full" style="height:115px;"></div>`;
+    const skeletonBlock = `<div class="skeleton w-full mb-2" style="height:115px;"></div>`;
     document.getElementById('notices-list').innerHTML = skeletonBlock;
     document.getElementById('resources-list').innerHTML = skeletonBlock;
-    document.getElementById('family-list').innerHTML = `<div class="skeleton w-full h-48"></div><div class="skeleton w-full h-48"></div>`;
+    document.getElementById('family-list').innerHTML = `<div class="skeleton w-full h-48"></div>`;
+  }
+
+  // ফাঁকা রো কিংবা 'pending' স্ট্যাটাস বাদে ডাটা কাউন্ট করার ফাংশন
+  function getValidItems(arr, isFamily = false) {
+    return arr.filter(item => {
+      const st = item.status ? item.status.toLowerCase().trim() : '';
+      if (st === 'pending') return false;
+      if (isFamily) {
+        // ফ্যামিলি ট্যাবের জন্য নাম অথবা রোল অবশ্যই থাকতে হবে
+        return item.name || item.roll;
+      }
+      return true;
+    });
   }
 
   function updateUI() {
-    const filterPending = arr => arr.filter(item => !(item.status && item.status.toLowerCase() === 'pending')).length;
+    const validNotices = getValidItems(serverData.notices);
+    const validResources = getValidItems(serverData.resources);
+    const validFamily = getValidItems(serverData.family, true);
 
-    const activeNotices = filterPending(serverData.notices);
-    const activeResources = filterPending(serverData.resources);
-    const activeFamily = filterPending(serverData.family);
+    document.getElementById('cnt-notices').innerText = validNotices.length;
+    document.getElementById('cnt-resources').innerText = validResources.length;
+    document.getElementById('cnt-family').innerText = validFamily.length;
 
-    document.getElementById('cnt-notices').innerText = activeNotices;
-    document.getElementById('cnt-resources').innerText = activeResources;
-    document.getElementById('cnt-family').innerText = activeFamily;
-
-    document.getElementById('stat-notices').innerText = activeNotices;
-    document.getElementById('stat-resources').innerText = activeResources;
-    document.getElementById('stat-family').innerText = activeFamily;
+    document.getElementById('stat-notices').innerText = validNotices.length;
+    document.getElementById('stat-resources').innerText = validResources.length;
+    document.getElementById('stat-family').innerText = validFamily.length;
 
     renderCurrentTab();
   }
@@ -318,14 +313,9 @@
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
     event.currentTarget.classList.add('active');
     
-    document.querySelectorAll('.tab-panel').forEach(pnl => {
-      pnl.classList.add('hidden');
-      pnl.classList.remove('block');
-    });
-    
-    const targetPanel = document.getElementById(`panel-${tabName}`);
-    targetPanel.classList.remove('hidden');
-    targetPanel.classList.add('block');
+    document.querySelectorAll('.tab-panel').forEach(pnl => { pnl.classList.add('hidden'); pnl.classList.remove('block'); });
+    document.getElementById(`panel-${tabName}`).classList.remove('hidden');
+    document.getElementById(`panel-${tabName}`).classList.add('block');
     
     renderCurrentTab();
   }
@@ -337,8 +327,13 @@
 
   function renderCurrentTab() {
     const baseDataset = serverData[currentTab] || [];
+    
+    // ইউজার ইন্টারফেসে ডেটা রেন্ডার করার ফিল্টারেশন
     const filtered = baseDataset.filter(item => {
-      if (item.status && item.status.toLowerCase() === 'pending') return false; 
+      const st = item.status ? item.status.toLowerCase().trim() : '';
+      if (st === 'pending') return false; 
+      if (currentTab === 'family' && !item.name && !item.roll) return false;
+      
       return Object.values(item).join(' ').toLowerCase().includes(searchQuery);
     });
 
@@ -347,52 +342,46 @@
     if (currentTab === 'notices') {
       filtered.forEach(item => {
         renderedHtml += `
-          <div class="content-card">
+          <div class="content-card mb-3">
             <div>
-              <div class="form-label" style="color: var(--gold-muted); margin-bottom: 4px;">${item.category || 'GENERAL'}</div>
-              <h4 class="content-card-title">${item.title}</h4>
+              <div class="form-label" style="color: var(--gold-muted);">${item.category || 'GENERAL'}</div>
+              <h4 class="content-card-title">${item.title || 'No Title'}</h4>
               <p style="color: var(--text-secondary); font-size: 14px;">${item.description || ''}</p>
-              <div class="card-meta-row">
-                <span>📅 Published: ${item.date || 'N/A'}</span>
-              </div>
+              <div class="card-meta-row"><span>📅 Date: ${item.date ? item.date.substring(0,10) : 'N/A'}</span></div>
             </div>
             ${item.link ? `<button onclick="openDocViewer('${item.link}', '${item.title}')" class="badge">Open Document</button>` : ''}
           </div>`;
       });
-      document.getElementById('notices-list').innerHTML = renderedHtml || '<p style="color:var(--text-muted); font-size:13px; padding:24px;">No systemic notices loaded.</p>';
+      document.getElementById('notices-list').innerHTML = renderedHtml || '<p style="color:var(--text-muted); padding:24px;">No notices available.</p>';
     } 
-    
     else if (currentTab === 'resources') {
       filtered.forEach(item => {
         renderedHtml += `
-          <div class="content-card">
+          <div class="content-card mb-3">
             <div>
-              <div class="form-label" style="color: var(--gold-muted); margin-bottom: 4px;">Classification: ${item.type || 'DOCUMENT'}</div>
-              <h4 class="content-card-title">${item.subject}</h4>
-              <p style="color: var(--text-secondary); font-size: 14px;">Key Topic: ${item.topic}</p>
-              <div class="card-meta-row">
-                <span>📅 Transmitted: ${item.date || 'N/A'}</span>
-              </div>
+              <div class="form-label" style="color: var(--gold-muted);">${item.type || 'DOCUMENT'}</div>
+              <h4 class="content-card-title">${item.subject || 'No Subject'}</h4>
+              <p style="color: var(--text-secondary); font-size: 14px;">Topic: ${item.topic || ''}</p>
+              <div class="card-meta-row"><span>📅 Added: ${item.date ? item.date.substring(0,10) : 'N/A'}</span></div>
             </div>
             <button onclick="openDocViewer('${item.link}', '${item.topic}')" class="badge">Fetch Resource</button>
           </div>`;
       });
-      document.getElementById('resources-list').innerHTML = renderedHtml || '<p style="color:var(--text-muted); font-size:13px; padding:24px;">No analytical resources synced.</p>';
+      document.getElementById('resources-list').innerHTML = renderedHtml || '<p style="color:var(--text-muted); padding:24px;">No resources synced.</p>';
     } 
-    
     else if (currentTab === 'family') {
       filtered.forEach(item => {
-        const structuralInitials = item.name ? item.name.split(' ').map(n => n[0]).join('').substring(0,2).toUpperCase() : 'CE';
+        const initials = item.name ? item.name.split(' ').map(n => n[0]).join('').substring(0,2).toUpperCase() : 'CE';
         renderedHtml += `
           <div class="profile-card">
-            <div class="avatar">${structuralInitials}</div>
-            <div style="font-size:16px; font-weight:600; color:var(--text-primary); margin-bottom:4px;">${item.name}</div>
-            <div style="font-size:13px; color:var(--text-muted); font-family:'Space Grotesk', sans-serif;">Student ID: ${item.roll}</div>
-            <div style="font-size:13px; color:var(--text-muted); font-family:'Space Grotesk', sans-serif; margin-bottom: 16px;">Email: ${item.merit || 'N/A'}</div>
-            ${item.fb ? `<a href="${item.fb}" target="_blank" class="badge w-full justify-center">Meta Profile</a>` : ''}
+            <div class="avatar">${initials}</div>
+            <div style="font-size:16px; font-weight:600; margin-bottom:4px;">${item.name || 'Unknown'}</div>
+            <div style="font-size:13px; color:var(--text-muted);">Roll: ${item.roll || 'N/A'}</div>
+            <div style="font-size:13px; color:var(--text-muted); margin-bottom: 16px;">Email: ${item.merit || 'N/A'}</div>
+            ${item.fb ? `<a href="${item.fb}" target="_blank" class="badge w-full justify-center">Portfolio Link</a>` : ''}
           </div>`;
       });
-      document.getElementById('family-list').innerHTML = renderedHtml || '<p style="color:var(--text-muted); font-size:13px; padding:24px;">No community identity structures loaded.</p>';
+      document.getElementById('family-list').innerHTML = renderedHtml || '<p style="color:var(--text-muted); padding:24px;">No members synced.</p>';
     }
   }
 
@@ -408,41 +397,30 @@
 
   function openFormModal() {
     let entryFields = `<input type="hidden" name="sheet" value="${currentTab}">`;
-    const submitBtn = document.getElementById('modal-submit-btn');
-    const cancelBtn = document.getElementById('modal-cancel-btn');
     
     if (currentTab === 'notices') {
       document.getElementById('modal-title-text').innerText = "Post New Academic Bulletin";
-      submitBtn.innerText = "Post Notice";
-      cancelBtn.innerText = "Discard Draft";
-      
       entryFields += `
         <div class="form-group"><label class="form-label">Notice Title</label><input type="text" name="title" class="form-input" required></div>
-        <div class="form-group"><label class="form-label">Notice Classification</label><input type="text" name="category" class="form-input" placeholder="e.g., Examination, Administrative, Event, Routine"></div>
-        <div class="form-group"><label class="form-label">Link to Attached Document (PDF/External Source)</label><input type="url" name="link" class="form-input"></div>
-        <div class="form-group"><label class="form-label">Summary and Detailed Content of Notice</label><textarea name="description" class="form-textarea" rows="3"></textarea></div>
+        <div class="form-group"><label class="form-label">Notice Classification</label><input type="text" name="category" class="form-input" placeholder="e.g., Exam, Event"></div>
+        <div class="form-group"><label class="form-label">Link to Attached Document</label><input type="url" name="link" class="form-input"></div>
+        <div class="form-group"><label class="form-label">Summary / Detailed Content</label><textarea name="description" class="form-textarea" rows="3"></textarea></div>
         <div class="form-group"><label class="form-label">Publish Date</label><input type="date" name="date" class="form-input" required></div>`;
     } else if (currentTab === 'resources') {
       document.getElementById('modal-title-text').innerText = "Upload Academic Resource";
-      submitBtn.innerText = "Upload Resource";
-      cancelBtn.innerText = "Clear and Discard";
-
       entryFields += `
         <div class="form-group"><label class="form-label">Course Name / Code</label><input type="text" name="subject" class="form-input" required></div>
         <div class="form-group"><label class="form-label">Key Topic</label><input type="text" name="topic" class="form-input" required></div>
-        <div class="form-group"><label class="form-label">Link to Resource File (Google Drive/Dropbox etc.)</label><input type="url" name="link" class="form-input" required></div>
-        <div class="form-group"><label class="form-label">Document Type</label><input type="text" name="type" class="form-input" placeholder="e.g., PDF Document, Video Lecture, Slideshow, Worksheet"></div>
+        <div class="form-group"><label class="form-label">Link to Resource File</label><input type="url" name="link" class="form-input" required></div>
+        <div class="form-group"><label class="form-label">Document Type</label><input type="text" name="type" class="form-input" placeholder="e.g., PDF, Slides"></div>
         <div class="form-group"><label class="form-label">Date of Addition</label><input type="date" name="date" class="form-input" required></div>`;
     } else if (currentTab === 'family') {
       document.getElementById('modal-title-text').innerText = "Add New Student Profile";
-      submitBtn.innerText = "Register Profile";
-      cancelBtn.innerText = "Cancel Registration";
-
       entryFields += `
         <div class="form-group"><label class="form-label">Full Name</label><input type="text" name="name" class="form-input" required></div>
         <div class="form-group"><label class="form-label">Student ID</label><input type="text" name="roll" class="form-input" required></div>
         <div class="form-group"><label class="form-label">Email</label><input type="email" name="merit" class="form-input"></div>
-        <div class="form-group"><label class="form-label">Link to Portfolio / Profile (e.g., LinkedIn, Portfolio Site,FB)</label><input type="url" name="fb" class="form-input"></div>`;
+        <div class="form-group"><label class="form-label">Link to Portfolio</label><input type="url" name="fb" class="form-input"></div>`;
     }
     
     document.getElementById('dynamic-form-fields').innerHTML = entryFields;
@@ -456,7 +434,7 @@
   }
 
   function handleSubmissionSuccess() {
-    alert("Data packet transmitted successfully to staging logs. Pending validation.");
+    alert("Data transmitted successfully! Pending admin approval.");
     closeFormModal();
     loadData(); 
   }
