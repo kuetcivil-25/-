@@ -409,10 +409,17 @@
   }
 
   function openDocViewer(url, title) {
-    document.getElementById('modalTitle').innerText = title;
-    document.getElementById('docFrame').src = fixDriveUrl(url);
-    document.getElementById('docViewerModal').classList.remove('hidden');
+  // যদি লিংকটি কোনো ড্রাইভ ফোল্ডারের হয়, তবে সেটি ইন-অ্যাপ ভিউয়ারে না খুলে সরাসরি নতুন ট্যাবে ওপেন হবে
+  if (url && url.includes('drive.google.com/drive/folders')) {
+    window.open(url, '_blank');
+    return; // ফাংশন এখানেই শেষ, নিচের ইন-অ্যাপ ভিউয়ার আর খুলবে না
   }
+
+  // নরমাল পিডিএফ বা ফাইল হলে আগের মতোই ইন-অ্যাপ ভিউয়ারে খুলবে
+  document.getElementById('modalTitle').innerText = title;
+  document.getElementById('docFrame').src = fixDriveUrl(url);
+  document.getElementById('docViewerModal').classList.remove('hidden');
+}
   function closeDocViewer() {
     document.getElementById('docViewerModal').classList.add('hidden');
     document.getElementById('docFrame').src = '';
